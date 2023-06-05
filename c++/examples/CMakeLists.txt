@@ -33,3 +33,10 @@ target_link_libraries(find_specific_read_ids_with_signal
     pod5_format
     Boost::headers
 )
+
+find_package(Boost REQUIRED COMPONENTS filesystem)
+include_directories(${Boost_INCLUDE_DIRS})
+
+add_executable(copy copy.cpp)
+
+target_link_libraries(copy pod5_format Boost::headers Boost::filesystem)
